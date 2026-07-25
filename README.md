@@ -138,15 +138,3 @@ https://github.com/mahongbql/ZenInterpreter/tags
 -   分享给需要实时翻译的朋友
 
 ------------------------------------------------------------------------
-
-## License
-
-MIT License
-
-```{=html}
-<p align="center">
-```
-Made with ❤️ by ZenInterpreter Team
-```{=html}
-</p>
-```
