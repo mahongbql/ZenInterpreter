@@ -80,7 +80,7 @@ https://github.com/mahongbql/ZenInterpreter/tags
   平台      状态
   --------- ----------------
   macOS     ✅ Available
-  Windows   🚧 Coming Soon
+  Windows   ✅ Available
   Linux     🚧 Planned
 
 ------------------------------------------------------------------------
