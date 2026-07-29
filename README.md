@@ -79,9 +79,9 @@ https://github.com/mahongbql/ZenInterpreter/tags
 
   平台      状态
   --------- ----------------
-  macOS     ✅ Available
-  Windows   ✅ Available
-  Linux     🚧 Planned
+  - macOS     ✅ Available
+  - Windows   ✅ Available
+  - Linux     🚧 Planned
 
 ------------------------------------------------------------------------
 
