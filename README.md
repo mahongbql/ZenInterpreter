@@ -94,6 +94,8 @@ https://github.com/mahongbql/ZenInterpreter/tags
 > ⚠️ **重点提示**
 >
 > 目前库存**仅有 1 个月期限**的兑换码。购买时请**务必只选择 1 个月**，**切勿选择其他月份**，以免造成无法正常兑换或发放失败。
+> <img width="355" height="65" alt="image" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+
 
 ------------------------------------------------------------------------
 
