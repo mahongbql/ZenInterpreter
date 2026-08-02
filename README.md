@@ -1,158 +1,109 @@
-# ZenInterpreter
-## ✨ 产品介绍
+# ZenInterpreter 🚀
 
+<p align="center">
+  <b>AI-Powered Lightweight Real-Time Desktop Interpreter & Audio Translator</b>
+</p>
+
+<p align="center">
+  <b>English</b> • <a href="./README_ZH.md">简体中文</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Inference-ONNX%20Runtime-green" alt="ONNX Runtime">
+  <img src="https://img.shields.io/badge/Model-SenseVoice-orange" alt="SenseVoice">
+</p>
+
+---
+
+## 📽️ Demo
 
 https://github.com/user-attachments/assets/6c25eafe-14c0-4ddc-ab72-29915665fd6c
 
+---
 
-**ZenInterpreter** 是一款 AI 驱动的实时同声翻译软件。
+## ✨ Overview
 
-它能够实时监听语音输入，将语音快速转换为文本，并结合 AI
-翻译能力，实现自然流畅的跨语言交流体验。
+**ZenInterpreter** is an AI-driven, real-time simultaneous translation software for desktop. It captures live system/microphone audio, rapidly converts speech to text, and translates it using AI for seamless cross-language communication.
 
-适用于：
+**Ideal for:**
+- 🌎 **International Meetings**: Remote collaboration & team calls
+- 🎓 **Online Learning**: Lectures, webinars, and raw video streaming
+- 🎤 **Live Streaming**: Real-time auto-captioning
+- 💼 **Business Communication**: Client negotiations & cross-border sales
+- ✈️ **Language Learning**: Real-time listening assistance
 
--   🌎 国际会议
--   🎓 在线学习
--   🎤 演讲直播
--   💼 商务沟通
--   ✈️ 海外交流
+Designed to be **faster, lighter, and privacy-first**.
 
-ZenInterpreter 致力于提供更快、更轻、更私密的 AI 翻译体验。
+---
 
-------------------------------------------------------------------------
+## 🚀 Key Features
 
-## 🚀 核心特点
+### ⚡ Real-Time Speech Recognition
+Powered by high-performance **SenseVoiceSmall** combined with **ONNX Runtime**, providing ultra-low latency speech recognition and translation.
 
-### ⚡ 实时语音识别
+### 🪶 Lightweight AI Architecture
+Ditch heavy deep learning frameworks to keep resource consumption minimal:
+- ❌ **No PyTorch** or bloated frameworks required
+- ✅ **ONNX Runtime** for high-efficiency inference
+- ✅ Tiny memory footprint & instant startup
 
-采用高性能语音识别技术：
+### 🔒 Privacy-First
+Supports local AI inference. Your audio stays private and does not need to be sent to external servers.
 
--   SenseVoiceSmall
--   ONNX Runtime 推理引擎
+---
 
-实现低延迟语音理解。
+## 💻 Supported Platforms & Download
 
-------------------------------------------------------------------------
+Download the latest pre-compiled binaries from [GitHub Releases/Tags](https://github.com/mahongbql/ZenInterpreter/tags).
 
-### 🪶 轻量化 AI 架构
+| OS | Status | Notes |
+| :--- | :---: | :--- |
+| **macOS** | ✅ Available | macOS 12+ (Apple Silicon & Intel Mac) |
+| **Windows** | ✅ Available | Installers available |
+| **APP** | 🚧 Planned | Under development |
 
-ZenInterpreter 不依赖大型深度学习运行环境：
+---
 
--   ❌ 无需 PyTorch
--   ❌ 无需完整 AI 框架
--   ✅ ONNX 高效推理
--   ✅ 更小体积
--   ✅ 更快启动速度
+## 🛠️ Tech Stack
 
-架构：
+| Component | Technology |
+| :--- | :--- |
+| **UI Framework** | PyQt6 |
+| **Audio Input** | PyAudio |
+| **Speech Recognition** | SenseVoiceSmall (ONNX) |
+| **Inference Engine** | ONNX Runtime |
+| **Packaging** | PyInstaller / Inno Setup |
 
-    AI Speech Model
-            |
-            ↓
-     ONNX Runtime
-            |
-            ↓
-     Speech Recognition
-            |
-            ↓
-     Translation Engine
-            |
-            ↓
-     ZenInterpreter
+---
 
-------------------------------------------------------------------------
+## 💳 License & Activation
 
-## 🔒 隐私优先
+You can purchase a license key on Afdian:
 
-支持本地 AI 推理：
+* 🛒 **Store**: [Afdian Store](https://afdian.com/a/mikema)
 
--   音频无需上传云端
--   数据更加安全
--   适合会议、学习等私密场景
-
-------------------------------------------------------------------------
-
-## 📦 下载
-
-最新版本：
-
-https://github.com/mahongbql/ZenInterpreter/tags
-
-当前支持：
-
-  平台      状态
-  --------- ----------------
-  - macOS     ✅ Available
-  - Windows   ✅ Available
-  - Linux     🚧 Planned
-
-------------------------------------------------------------------------
-
-## 💳 购买与激活
-
-你可以通过爱发电购买 ZenInterpreter 兑换码：
-
-- 🛒 **购买地址**：[https://afdian.com/a/mikema](https://afdian.com/a/mikema)
-
-> ⚠️ **重点提示**
+> ⚠️ **Important Notice**
+> Currently, only **1-Month licenses** are in stock. Please select **1 Month ONLY** when purchasing to avoid code generation failures.
 >
-> 目前库存**仅有 1 个月期限**的兑换码。购买时请**务必只选择 1 个月**，**切勿选择其他月份**，以免造成无法正常兑换或发放失败。
-> <img width="355" height="65" alt="image" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+> <img width="355" alt="Purchase Notice" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
 
-
-------------------------------------------------------------------------
-
-## 🖥️ 系统支持
-
-当前版本：
-
--   macOS 12+
--   Apple Silicon / Intel Mac
-
-未来计划：
-
--   Windows
--   Linux
-
-------------------------------------------------------------------------
-
-## 🛠️ 技术架构
-
-  模块                 技术
-  -------------------- ----------------------
-  UI Framework         PyQt6
-  Audio Input          PyAudio
-  Speech Recognition   SenseVoiceSmall ONNX
-  Inference Engine     ONNX Runtime
-  Packaging            PyInstaller
-
-------------------------------------------------------------------------
+---
 
 ## 📅 Roadmap
 
-### ✅ Completed
+- [x] SenseVoiceSmall ONNX model integration
+- [x] Real-time low-latency speech recognition & translation pipeline
+- [x] macOS application & Windows installer releases
+- [ ] Support for expanded language models
+- [ ] Further latency & performance optimization
+- [ ] UI/UX redesign & enhancement
 
--   [x] SenseVoiceSmall ONNX 集成
--   [x] 实时语音识别
--   [x] AI 翻译流程
--   [x] macOS App 发布
-
-### 🚧 Developing
-
--   [ ] Windows 版本
--   [ ] 更多语言支持
--   [ ] 更低延迟优化
--   [ ] UI 体验优化
-
-------------------------------------------------------------------------
+---
 
 ## ⭐ Support
 
-如果 ZenInterpreter 对你有帮助：
-
--   Star ⭐ 项目
--   提交 Issue
--   分享给需要实时翻译的朋友
-
-------------------------------------------------------------------------
+If you find ZenInterpreter helpful:
+* Give it a **Star ⭐**!
+* Open an issue for bug reports or feature requests on [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues).
+* Share it with friends who need real-time desktop translation!
