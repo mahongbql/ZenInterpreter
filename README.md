@@ -1,6 +1,5 @@
 # ZenInterpreter
 ## ✨ 产品介绍
-![Uploading zen.gif…]()
 
 **ZenInterpreter** 是一款 AI 驱动的实时同声翻译软件。
 
