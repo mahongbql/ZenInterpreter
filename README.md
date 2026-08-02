@@ -1,6 +1,10 @@
 # ZenInterpreter
 ## ✨ 产品介绍
 
+
+https://github.com/user-attachments/assets/6c25eafe-14c0-4ddc-ab72-29915665fd6c
+
+
 **ZenInterpreter** 是一款 AI 驱动的实时同声翻译软件。
 
 它能够实时监听语音输入，将语音快速转换为文本，并结合 AI
