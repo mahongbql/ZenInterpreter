@@ -55,6 +55,10 @@ Ditch heavy deep learning frameworks to keep resource consumption minimal:
 ### 🔒 Privacy-First
 Supports local AI inference. Your audio stays private and does not need to be sent to external servers.
 
+### 🔀 Dual Translation Modes
+Tailor your translation experience to your exact scenario with dual engine support:
+- 🤖 **AI Stream Mode**: Powered by advanced LLMs for context-aware, highly fluent live interpretation. Perfect for speeches, webinars, and dynamic conversations.
+- ⚡ **Classic Mode**: Traditional high-speed machine translation. Delivers lightning-fast, direct literal translations with zero overhead.
 ---
 
 ## 💻 Supported Platforms & Download
