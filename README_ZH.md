@@ -1,7 +1,8 @@
-# ZenInterpreter 🚀
+# ZenInterpreter
 
 <p align="center">
-  <b>AI 驱动的轻量级桌面端实时同声传译与语音翻译软件</b>
+  <b>轻量级桌面实时同传</b><br>
+  本地语音识别 · 流式 AI 翻译 · 全屏置顶字幕
 </p>
 
 <p align="center">
@@ -9,106 +10,160 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/Inference-ONNX%20Runtime-green" alt="ONNX Runtime">
-  <img src="https://img.shields.io/badge/Model-SenseVoice-orange" alt="SenseVoice">
+  <img src="https://img.shields.io/badge/平台-macOS-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/识别-SenseVoice%20ONNX%20INT8-orange" alt="SenseVoice">
+  <img src="https://img.shields.io/badge/推理-ONNX%20Runtime-green" alt="ONNX Runtime">
+  <img src="https://img.shields.io/badge/翻译-AI%20%7C%20Google-purple" alt="Translation">
 </p>
 
 ---
 
-## 📽️ 效果演示
+## 演示
 
-https://github.com/user-attachments/assets/6c25eafe-14c0-4ddc-ab72-29915665fd6c
-
----
-
-## ✨ 产品介绍
-
-**ZenInterpreter** 是一款 AI 驱动的实时同声翻译软件。它能够实时监听语音输入，将语音快速转换为文本，并结合 AI 翻译能力，实现自然流畅的跨语言交流体验。
-
-**适用于：**
-- 🌎 **国际会议**：跨国团队与远程协同沟通
-- 🎓 **在线学习**：无字幕外文网课与学术讲座
-- 🎤 **演讲直播**：实时生成并翻译字幕
-- 💼 **商务沟通**：线上客户洽谈与外贸交流
-- ✈️ **海外交流**：实时语音与听力辅助
-
-ZenInterpreter 致力于提供**更快、更轻、更私密**的 AI 翻译体验。
+https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
 
 ---
 
-## 🚀 核心特点
+## 简介
 
-### ⚡ 实时语音识别
-采用高性能 SenseVoiceSmall 结合 ONNX Runtime 推理引擎，实现极致低延迟的语音理解与出字体验。
+**ZenInterpreter** 是一款 macOS 悬浮字幕工具。它监听麦克风或系统音频，在本地完成语音识别，再把译文以流式字幕叠在 Zoom、浏览器、网课和全屏应用之上。
 
-### 🪶 轻量化 AI 架构
-放弃繁重的深度学习运行环境，极大幅度精简软件体积与内存占用：
-- ❌ **无需** 安装 PyTorch 或庞大的深度学习框架
-- ✅ **ONNX** 高效引擎直接推理
-- ✅ 更小体积、更低 CPU/内存占用、秒级启动速度
+适合需要**实时跟上另一门语言**、又不想安装一整套深度学习环境的人。
 
-### 🔒 隐私优先
-支持本地 AI 模型推理，音频数据无需强制上传至云端服务器，保障私密会议与敏感商务交流的安全。
+**常见场景**
 
-### 🔀 双轨翻译模式
-支持双引擎自由切换，满足不同场景下的精准需求：
-- 🤖 **AI 智能同传模式**：基于大模型强大的上下文理解能力，提供流畅连贯的同声传译。非常适合演讲、在线研讨会及复杂对话。
-- ⚡ **经典标准模式**：采用传统的高速机器翻译，提供零延迟、直白高效的字面直译。
+- 国际会议、远程协作
+- 网课、讲座、原声视频
+- 需要即时字幕的直播
+- 客户沟通、跨境销售
+- 看原片练听力
 
 ---
 
-## 💻 平台支持与下载
+## 功能要点
 
-你可以从 [GitHub Releases/Tags](https://github.com/mahongbql/ZenInterpreter/tags) 下载最新编译好的安装包。
+### 全屏置顶悬浮窗
 
-| 操作系统 | 状态 | 备注 |
-| :--- | :---: | :--- |
-| **macOS** | ✅ 已支持 | 支持 macOS 12+ (Apple Silicon / Intel) |
-| **Windows** | ✅ 已支持 | 编译安装包已发布 |
-| **APP** | 🚧 计划中 | 正在适配中 |
+无边框半透明字幕窗，始终压在其他应用上面，包括 macOS 全屏和其他桌面空间。鼠标移上去唤出工具栏，拖动可移动，拉边缘可缩放，支持多显示器。
 
----
+### 本地语音识别
 
-## 🛠️ 技术栈
+**SenseVoiceSmall** 通过 **ONNX Runtime（INT8）** 在本机运行。不依赖 PyTorch。音频不出设备，只有识别出的文本会发给翻译服务。
 
-| 模块 | 使用技术 |
+### 双翻译引擎
+
+在设置中随时切换：
+
+| 引擎 | 特点 |
 | :--- | :--- |
-| **UI 框架** | PyQt6 |
-| **音频采集** | PyAudio |
-| **语音识别** | SenseVoiceSmall (ONNX) |
-| **推理引擎** | ONNX Runtime |
-| **打包分发** | PyInstaller / Inno Setup |
+| **AI Model** | 带上下文的流式同传：纠正识别口误、去掉语气词、译文更自然。适合演讲和对话。 |
+| **Google** | 更快、更直译的机器翻译，开销更低。适合更在意速度的场景。 |
+
+Google 不可用时，会自动回退到 AI 引擎。
+
+### 双语实时字幕
+
+讲话或会议播放时，悬浮窗会显示：
+
+1. 原文的**实时预览**
+2. **定稿原文**，以及逐字填入的**流式译文**
+
+翻译按语义单元调度（而不是整段攒完再翻），长句也能保持低延迟。
+
+### 语种
+
+默认 **英语 → 中文**。下列语种可任意配对，也可一键对调：
+
+English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
+
+翻译方向和引擎选择会记住，下次打开不用重设。
+
+### 音频输入
+
+在设置中选择任意输入设备。若系统里有 **BlackHole**（macOS）或 **Stereo Mix**，会自动选中，用来给系统声音上字幕——Zoom、YouTube、本地视频，而不只是麦克风。
+
+### 账号
+
+- GitHub / Google 一键登录
+- 每台设备每天 **30 分钟游客试用**
+- 在设置里兑换卡密；会员到期后仍可留在应用内续期，不必重新登录
 
 ---
 
-## 💳 购买与激活
+## 快速开始
 
-您可以购买 ZenInterpreter 兑换码以解锁完整功能：
+1. 从 [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags) 下载最新 macOS 安装包。
+2. 打开应用，用 GitHub、Google 登录，或开启游客体验。
+3. 鼠标移到字幕窗上 → **⚙ 设置**：
+   - **音频设备** — 麦克风，或 BlackHole 捕获系统声音
+   - **翻译引擎** — AI Model 或 Google
+   - **翻译方向** — 源语言 / 目标语言，或点 ⇄ 对调
+4. 开始播放或说话，字幕会出现在悬浮窗里。
 
-* 🛒 **购买地址**：[爱发电 (Afdian)](https://afdian.com/a/mikema)
+### 在 macOS 上捕获系统音频
 
-> ⚠️ **重点提示**
-> 目前库存**仅有 1 个月期限**的兑换码。购买时请**务必只选择 1 个月**，**切勿选择其他月份**，以免造成无法正常兑换或发放失败。
-> 
-> <img width="355" alt="购买提示" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+若要翻译 Zoom / 浏览器 / 本地视频，而不是麦克风：
 
----
-
-## 📅 路线图 (Roadmap)
-
-- [x] 集成 SenseVoiceSmall ONNX 模型
-- [x] 优化实时低延迟语音识别与 AI 翻译流
-- [x] 发布 macOS 应用与 Windows 安装包
-- [ ] 支持更多语言模型拓展
-- [ ] 进一步降低 推理/翻译 延迟
-- [ ] UI / UX 视觉与交互重构
+1. 安装 [BlackHole 2ch](https://existential.audio/blackhole/)。
+2. 打开 **音频 MIDI 设置**，新建一个**多输出设备**，同时勾选扬声器和 BlackHole。
+3. 把系统输出切到这个多输出设备。
+4. 在 ZenInterpreter 里选择 **BlackHole** 作为输入（检测到时会自动选中）。
 
 ---
 
-## ⭐ 支持项目
+## 平台
 
-如果 ZenInterpreter 对你有帮助，欢迎：
-* 点一个 **Star ⭐** 给予鼓励！
-* 在 [Issues](https://github.com/mahongbql/ZenInterpreter/issues) 中反馈 Bug 或提出建议。
-* 分享给身边需要实时同传与翻译的朋友！
+| 平台 | 状态 | 说明 |
+| :--- | :---: | :--- |
+| **macOS** | 已发布 | 12+，Apple Silicon 与 Intel |
+| **Windows** | 规划中 | 当前版本未提供 |
+| **移动端** | 规划中 | — |
+
+---
+
+## 技术栈
+
+| 层级 | 技术 |
+| :--- | :--- |
+| 界面 | PyQt6 · AppKit 悬浮（NSPanel / 屏保级窗口） |
+| 音频 | PyAudio · Core Audio |
+| 语音识别 | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 |
+| 翻译 | 流式 LLM（Qwen2.5）或 Google，经托管 API |
+| 登录 / 计费 | Supabase · GitHub / Google OAuth · 爱发电卡密 |
+| 打包 | PyInstaller · dmgbuild |
+
+语音识别完全本地。翻译文本会按所选引擎发到网络服务。
+
+---
+
+## 购买与激活
+
+在 [爱发电](https://afdian.com/a/mikema) 购买卡密，然后到 **设置 → 兑换激活码** 激活。
+
+> 目前货架上只有 **1 个月** 卡密。下单请选择 **1 Month**，否则可能无法生成激活码。
+
+<img width="355" alt="购买须知" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+
+---
+
+## 路线图
+
+- [x] SenseVoiceSmall ONNX INT8 本地识别
+- [x] 语义单元调度的流式翻译
+- [x] 双引擎（AI Model / Google）及自动回退
+- [x] 7 语种配对、对调、偏好记忆
+- [x] macOS 全屏悬浮与独立设置面板
+- [x] OAuth 登录、游客试用、应用内兑换
+- [ ] Windows 版本
+- [ ] 更多语种
+- [ ] 进一步压延迟、提升识别质量
+
+---
+
+## 支持
+
+如果 ZenInterpreter 对你有用：
+
+- 给仓库点一颗 Star
+- 问题与建议请到 [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues)
+- 转给同样需要桌面实时翻译的朋友
