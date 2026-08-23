@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/平台-macOS-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/平台-macOS%20%7C%20Windows-blue" alt="Platform">
   <img src="https://img.shields.io/badge/识别-SenseVoice%20ONNX%20INT8-orange" alt="SenseVoice">
   <img src="https://img.shields.io/badge/推理-ONNX%20Runtime-green" alt="ONNX Runtime">
   <img src="https://img.shields.io/badge/翻译-AI%20%7C%20Google-purple" alt="Translation">
@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
 
 ## 简介
 
-**ZenInterpreter** 是一款 macOS 悬浮字幕工具。它监听麦克风或系统音频，在本地完成语音识别，再把译文以流式字幕叠在 Zoom、浏览器、网课和全屏应用之上。
+**ZenInterpreter** 是一款面向 macOS 和 Windows 的悬浮字幕工具。它监听麦克风或系统音频，在本地完成语音识别，再把译文以流式字幕叠在 Zoom、浏览器、网课和全屏应用之上。
 
 适合需要**实时跟上另一门语言**、又不想安装一整套深度学习环境的人。
 
@@ -44,7 +44,7 @@ https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
 
 ### 全屏置顶悬浮窗
 
-无边框半透明字幕窗，始终压在其他应用上面，包括 macOS 全屏和其他桌面空间。鼠标移上去唤出工具栏，拖动可移动，拉边缘可缩放，支持多显示器。
+无边框半透明字幕窗，始终压在其他应用上面。在 macOS 上还可覆盖全屏应用和其他桌面空间。鼠标移上去唤出工具栏，拖动可移动，拉边缘可缩放，支持多显示器。
 
 ### 本地语音识别
 
@@ -72,15 +72,18 @@ Google 不可用时，会自动回退到 AI 引擎。
 
 ### 语种
 
-默认 **英语 → 中文**。下列语种可任意配对，也可一键对调：
+默认 **英语 → 中文**。
 
-English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
+| 平台 | 语种支持 |
+| :--- | :--- |
+| **macOS** | English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch 任意配对，可一键对调 |
+| **Windows** | 目前仅支持 英语 → 中文 |
 
 翻译方向和引擎选择会记住，下次打开不用重设。
 
 ### 音频输入
 
-在设置中选择任意输入设备。若系统里有 **BlackHole**（macOS）或 **Stereo Mix**，会自动选中，用来给系统声音上字幕——Zoom、YouTube、本地视频，而不只是麦克风。
+在设置中选择任意输入设备。若系统里有 **BlackHole**（macOS）或 **立体声混音**（Windows），会自动选中，用来给系统声音上字幕——Zoom、YouTube、本地视频，而不只是麦克风。
 
 ### 账号
 
@@ -92,12 +95,12 @@ English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
 
 ## 快速开始
 
-1. 从 [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags) 下载最新 macOS 安装包。
+1. 从 [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags) 下载对应系统的安装包。
 2. 打开应用，用 GitHub、Google 登录，或开启游客体验。
 3. 鼠标移到字幕窗上 → **⚙ 设置**：
-   - **音频设备** — 麦克风，或 BlackHole 捕获系统声音
+   - **音频设备** — 麦克风，或 BlackHole / 立体声混音 捕获系统声音
    - **翻译引擎** — AI Model 或 Google
-   - **翻译方向** — 源语言 / 目标语言，或点 ⇄ 对调
+   - **翻译方向** — macOS 可选源语言 / 目标语言，或点 ⇄ 对调；Windows 目前固定为英语 → 中文
 4. 开始播放或说话，字幕会出现在悬浮窗里。
 
 ### 在 macOS 上捕获系统音频
@@ -109,14 +112,16 @@ English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
 3. 把系统输出切到这个多输出设备。
 4. 在 ZenInterpreter 里选择 **BlackHole** 作为输入（检测到时会自动选中）。
 
+Windows 请在声音控制面板中打开 **立体声混音**（或同类回环设备），再在设置里选为输入。
+
 ---
 
 ## 平台
 
 | 平台 | 状态 | 说明 |
 | :--- | :---: | :--- |
-| **macOS** | 已发布 | 12+，Apple Silicon 与 Intel |
-| **Windows** | 规划中 | 当前版本未提供 |
+| **macOS** | 已发布 | 12+，Apple Silicon 与 Intel · 完整语种配对 |
+| **Windows** | 已发布 | 提供安装包 · 目前仅英语 → 中文 |
 | **移动端** | 规划中 | — |
 
 ---
@@ -125,12 +130,12 @@ English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
 
 | 层级 | 技术 |
 | :--- | :--- |
-| 界面 | PyQt6 · AppKit 悬浮（NSPanel / 屏保级窗口） |
-| 音频 | PyAudio · Core Audio |
+| 界面 | PyQt6 · macOS 使用 AppKit 悬浮（NSPanel / 屏保级窗口） |
+| 音频 | PyAudio · Core Audio（macOS）/ WASAPI（Windows） |
 | 语音识别 | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 |
 | 翻译 | 流式 LLM（Qwen2.5）或 Google，经托管 API |
 | 登录 / 计费 | Supabase · GitHub / Google OAuth · 爱发电卡密 |
-| 打包 | PyInstaller · dmgbuild |
+| 打包 | PyInstaller · dmgbuild（macOS）/ Inno Setup（Windows） |
 
 语音识别完全本地。翻译文本会按所选引擎发到网络服务。
 
@@ -151,10 +156,11 @@ English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
 - [x] SenseVoiceSmall ONNX INT8 本地识别
 - [x] 语义单元调度的流式翻译
 - [x] 双引擎（AI Model / Google）及自动回退
-- [x] 7 语种配对、对调、偏好记忆
+- [x] macOS：7 语种配对、对调、偏好记忆
 - [x] macOS 全屏悬浮与独立设置面板
+- [x] Windows 版本（英语 → 中文）
 - [x] OAuth 登录、游客试用、应用内兑换
-- [ ] Windows 版本
+- [ ] Windows 多语种配对
 - [ ] 更多语种
 - [ ] 进一步压延迟、提升识别质量
 
