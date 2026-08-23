@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-macOS-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-blue" alt="Platform">
   <img src="https://img.shields.io/badge/ASR-SenseVoice%20ONNX%20INT8-orange" alt="SenseVoice">
   <img src="https://img.shields.io/badge/Inference-ONNX%20Runtime-green" alt="ONNX Runtime">
   <img src="https://img.shields.io/badge/Translate-AI%20%7C%20Google-purple" alt="Translation">
@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
 
 ## Overview
 
-**ZenInterpreter** is a floating subtitle window for macOS. It listens to your microphone or system audio, transcribes speech on-device, and streams a live translation on top of Zoom, browsers, lectures, and fullscreen apps.
+**ZenInterpreter** is a floating subtitle window for macOS and Windows. It listens to your microphone or system audio, transcribes speech on-device, and streams a live translation on top of Zoom, browsers, lectures, and fullscreen apps.
 
 Built for people who need to **follow another language in real time**, without installing a heavyweight AI stack.
 
@@ -44,7 +44,7 @@ Built for people who need to **follow another language in real time**, without i
 
 ### Always-on-top overlay
 
-Frameless, translucent subtitle window that stays above other apps — including macOS fullscreen and other Spaces. Hover to reveal the toolbar; drag to move; pull the edges to resize. Works across multiple displays.
+Frameless, translucent subtitle window that stays above other apps. On macOS it also covers fullscreen apps and other Spaces. Hover to reveal the toolbar; drag to move; pull the edges to resize. Works across multiple displays.
 
 ### Local speech recognition
 
@@ -72,15 +72,18 @@ Translation is dispatched in semantic units (not one giant block), so long speec
 
 ### Languages
 
-Default pair is **English → 中文**. Any pair among the following, plus a one-click swap:
+Default pair is **English → 中文**.
 
-English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
+| Platform | Language support |
+| :--- | :--- |
+| **macOS** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
+| **Windows** | English → 中文 only for now |
 
 Your language pair and engine choice are remembered across launches.
 
 ### Audio input
 
-Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** is present, it is selected automatically so you can caption system audio — Zoom, YouTube, a local video — not just the microphone.
+Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (Windows) is present, it is selected automatically so you can caption system audio — Zoom, YouTube, a local video — not just the microphone.
 
 ### Account
 
@@ -92,12 +95,12 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** is
 
 ## Quick start
 
-1. Download the latest macOS build from [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags).
+1. Download the latest build for your OS from [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags).
 2. Open the app and sign in with GitHub, Google, or start the guest trial.
 3. Hover the overlay → **⚙ Settings**:
-   - **Audio device** — microphone, or BlackHole for system audio
+   - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
    - **Engine** — AI Model or Google
-   - **Languages** — source / target, or tap ⇄ to swap
+   - **Languages** — on macOS, pick source / target or tap ⇄ to swap; on Windows this is fixed to English → 中文
 4. Play or speak. Captions appear in the overlay.
 
 ### Capture system audio on macOS
@@ -109,14 +112,16 @@ To translate Zoom / a browser / a local video instead of the mic:
 3. Set macOS output to that Multi-Output Device.
 4. In ZenInterpreter, choose **BlackHole** as the input (auto-selected when detected).
 
+On Windows, enable **Stereo Mix** (or equivalent loopback) in the sound control panel, then select it as the input in Settings.
+
 ---
 
 ## Platforms
 
 | Platform | Status | Notes |
 | :--- | :---: | :--- |
-| **macOS** | Available | 12+, Apple Silicon and Intel |
-| **Windows** | Planned | Not in the current release |
+| **macOS** | Available | 12+, Apple Silicon and Intel · full language pairs |
+| **Windows** | Available | Installer available · English → 中文 only |
 | **Mobile** | Planned | — |
 
 ---
@@ -125,12 +130,12 @@ To translate Zoom / a browser / a local video instead of the mic:
 
 | Layer | Stack |
 | :--- | :--- |
-| UI | PyQt6 · AppKit overlay (NSPanel / screensaver window level) |
-| Audio | PyAudio · Core Audio |
+| UI | PyQt6 · AppKit overlay on macOS (NSPanel / screensaver window level) |
+| Audio | PyAudio · Core Audio (macOS) / WASAPI (Windows) |
 | ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 |
 | Translation | Streaming LLM (Qwen2.5) or Google, via a hosted API |
 | Auth / billing | Supabase · GitHub / Google OAuth · Afdian license keys |
-| Packaging | PyInstaller · dmgbuild |
+| Packaging | PyInstaller · dmgbuild (macOS) / Inno Setup (Windows) |
 
 Speech recognition is fully local. Translation text is sent to the selected engine over the network.
 
@@ -151,10 +156,11 @@ Buy a license key on [Afdian](https://afdian.com/a/mikema), then redeem it in **
 - [x] SenseVoiceSmall ONNX INT8 on-device ASR
 - [x] Streaming translation with semantic-unit scheduling
 - [x] Dual engines (AI Model / Google) with auto-fallback
-- [x] 7-language pairs, swap, and preference persistence
+- [x] macOS: 7-language pairs, swap, and preference persistence
 - [x] macOS fullscreen overlay and independent settings panel
+- [x] Windows build (English → 中文)
 - [x] OAuth login, guest trial, and in-app license redeem
-- [ ] Windows build
+- [ ] Windows multilingual pairs
 - [ ] More languages
 - [ ] Further latency and ASR quality work
 
