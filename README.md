@@ -1,7 +1,8 @@
-# ZenInterpreter 🚀
+# ZenInterpreter
 
 <p align="center">
-  <b>AI-Powered Lightweight Real-Time Desktop Interpreter & Audio Translator</b>
+  <b>Lightweight real-time desktop interpreter</b><br>
+  Local speech recognition · Streaming AI translation · Always-on-top overlay
 </p>
 
 <p align="center">
@@ -9,109 +10,160 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Platform-macOS-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/ASR-SenseVoice%20ONNX%20INT8-orange" alt="SenseVoice">
   <img src="https://img.shields.io/badge/Inference-ONNX%20Runtime-green" alt="ONNX Runtime">
-  <img src="https://img.shields.io/badge/Model-SenseVoice-orange" alt="SenseVoice">
+  <img src="https://img.shields.io/badge/Translate-AI%20%7C%20Google-purple" alt="Translation">
 </p>
 
 ---
 
-## 📽️ Demo
-
-
+## Demo
 
 https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
 
+---
 
+## Overview
+
+**ZenInterpreter** is a floating subtitle window for macOS. It listens to your microphone or system audio, transcribes speech on-device, and streams a live translation on top of Zoom, browsers, lectures, and fullscreen apps.
+
+Built for people who need to **follow another language in real time**, without installing a heavyweight AI stack.
+
+**Typical use cases**
+
+- International meetings and remote collaboration
+- Online courses, webinars, and raw video
+- Live streams that need instant captions
+- Client calls and cross-border sales
+- Listening practice while watching original-language content
 
 ---
 
-## ✨ Overview
+## Highlights
 
-**ZenInterpreter** is an AI-driven, real-time simultaneous translation software for desktop. It captures live system/microphone audio, rapidly converts speech to text, and translates it using AI for seamless cross-language communication.
+### Always-on-top overlay
 
-**Ideal for:**
-- 🌎 **International Meetings**: Remote collaboration & team calls
-- 🎓 **Online Learning**: Lectures, webinars, and raw video streaming
-- 🎤 **Live Streaming**: Real-time auto-captioning
-- 💼 **Business Communication**: Client negotiations & cross-border sales
-- ✈️ **Language Learning**: Real-time listening assistance
+Frameless, translucent subtitle window that stays above other apps — including macOS fullscreen and other Spaces. Hover to reveal the toolbar; drag to move; pull the edges to resize. Works across multiple displays.
 
-Designed to be **faster, lighter, and privacy-first**.
+### Local speech recognition
 
----
+**SenseVoiceSmall** runs locally through **ONNX Runtime (INT8)**. No PyTorch. Audio never leaves your machine — only recognized text is sent out for translation.
 
-## 🚀 Key Features
+### Dual translation engines
 
-### ⚡ Real-Time Speech Recognition
-Powered by high-performance **SenseVoiceSmall** combined with **ONNX Runtime**, providing ultra-low latency speech recognition and translation.
+Switch anytime in Settings:
 
-### 🪶 Lightweight AI Architecture
-Ditch heavy deep learning frameworks to keep resource consumption minimal:
-- ❌ **No PyTorch** or bloated frameworks required
-- ✅ **ONNX Runtime** for high-efficiency inference
-- ✅ Tiny memory footprint & instant startup
-
-### 🔒 Privacy-First
-Supports local AI inference. Your audio stays private and does not need to be sent to external servers.
-
-### 🔀 Dual Translation Modes
-Tailor your translation experience to your exact scenario with dual engine support:
-- 🤖 **AI Stream Mode**: Powered by advanced LLMs for context-aware, highly fluent live interpretation. Perfect for speeches, webinars, and dynamic conversations.
-- ⚡ **Classic Mode**: Traditional high-speed machine translation. Delivers lightning-fast, direct literal translations with zero overhead.
----
-
-## 💻 Supported Platforms & Download
-
-Download the latest pre-compiled binaries from [GitHub Releases/Tags](https://github.com/mahongbql/ZenInterpreter/tags).
-
-| OS | Status | Notes |
-| :--- | :---: | :--- |
-| **macOS** | ✅ Available | macOS 12+ (Apple Silicon & Intel Mac) |
-| **Windows** | ✅ Available | Installers available |
-| **APP** | 🚧 Planned | Under development |
-
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology |
+| Engine | What it does |
 | :--- | :--- |
-| **UI Framework** | PyQt6 |
-| **Audio Input** | PyAudio |
-| **Speech Recognition** | SenseVoiceSmall (ONNX) |
-| **Inference Engine** | ONNX Runtime |
-| **Packaging** | PyInstaller / Inno Setup |
+| **AI Model** | Context-aware streaming interpretation. Corrects ASR slips, drops fillers, and keeps phrasing natural. Best for talks and conversations. |
+| **Google** | Fast, literal machine translation with lower overhead. Best when you want speed over fluency. |
+
+If Google is unavailable, the app automatically falls back to the AI engine.
+
+### Live dual-line captions
+
+While you speak (or the meeting plays), the overlay shows:
+
+1. A live **preview** of the original transcript
+2. The **final source line**, then a **streaming translation** that fills in word by word
+
+Translation is dispatched in semantic units (not one giant block), so long speech stays low-latency.
+
+### Languages
+
+Default pair is **English → 中文**. Any pair among the following, plus a one-click swap:
+
+English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch
+
+Your language pair and engine choice are remembered across launches.
+
+### Audio input
+
+Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** is present, it is selected automatically so you can caption system audio — Zoom, YouTube, a local video — not just the microphone.
+
+### Account
+
+- GitHub / Google one-click login
+- **30-minute guest trial** per device, per day
+- Redeem a license key in Settings; expired members can stay in the app and renew without logging out again
 
 ---
 
-## 💳 License & Activation
+## Quick start
 
-You can purchase a license key on Afdian:
+1. Download the latest macOS build from [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags).
+2. Open the app and sign in with GitHub, Google, or start the guest trial.
+3. Hover the overlay → **⚙ Settings**:
+   - **Audio device** — microphone, or BlackHole for system audio
+   - **Engine** — AI Model or Google
+   - **Languages** — source / target, or tap ⇄ to swap
+4. Play or speak. Captions appear in the overlay.
 
-* 🛒 **Store**: [Afdian Store](https://afdian.com/a/mikema)
+### Capture system audio on macOS
 
-> ⚠️ **Important Notice**
-> Currently, only **1-Month licenses** are in stock. Please select **1 Month ONLY** when purchasing to avoid code generation failures.
->
-> <img width="355" alt="Purchase Notice" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+To translate Zoom / a browser / a local video instead of the mic:
 
----
-
-## 📅 Roadmap
-
-- [x] SenseVoiceSmall ONNX model integration
-- [x] Real-time low-latency speech recognition & translation pipeline
-- [x] macOS application & Windows installer releases
-- [ ] Support for expanded language models
-- [ ] Further latency & performance optimization
-- [ ] UI/UX redesign & enhancement
+1. Install [BlackHole 2ch](https://existential.audio/blackhole/).
+2. In **Audio MIDI Setup**, create a **Multi-Output Device** that includes both your speakers and BlackHole.
+3. Set macOS output to that Multi-Output Device.
+4. In ZenInterpreter, choose **BlackHole** as the input (auto-selected when detected).
 
 ---
 
-## ⭐ Support
+## Platforms
 
-If you find ZenInterpreter helpful:
-* Give it a **Star ⭐**!
-* Open an issue for bug reports or feature requests on [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues).
-* Share it with friends who need real-time desktop translation!
+| Platform | Status | Notes |
+| :--- | :---: | :--- |
+| **macOS** | Available | 12+, Apple Silicon and Intel |
+| **Windows** | Planned | Not in the current release |
+| **Mobile** | Planned | — |
+
+---
+
+## Tech stack
+
+| Layer | Stack |
+| :--- | :--- |
+| UI | PyQt6 · AppKit overlay (NSPanel / screensaver window level) |
+| Audio | PyAudio · Core Audio |
+| ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 |
+| Translation | Streaming LLM (Qwen2.5) or Google, via a hosted API |
+| Auth / billing | Supabase · GitHub / Google OAuth · Afdian license keys |
+| Packaging | PyInstaller · dmgbuild |
+
+Speech recognition is fully local. Translation text is sent to the selected engine over the network.
+
+---
+
+## License
+
+Buy a license key on [Afdian](https://afdian.com/a/mikema), then redeem it in **Settings → 兑换激活码**.
+
+> Currently only **1-Month** keys are in stock. Choose **1 Month** at checkout, otherwise key generation may fail.
+
+<img width="355" alt="Purchase Notice" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+
+---
+
+## Roadmap
+
+- [x] SenseVoiceSmall ONNX INT8 on-device ASR
+- [x] Streaming translation with semantic-unit scheduling
+- [x] Dual engines (AI Model / Google) with auto-fallback
+- [x] 7-language pairs, swap, and preference persistence
+- [x] macOS fullscreen overlay and independent settings panel
+- [x] OAuth login, guest trial, and in-app license redeem
+- [ ] Windows build
+- [ ] More languages
+- [ ] Further latency and ASR quality work
+
+---
+
+## Support
+
+If ZenInterpreter helps you:
+
+- Star the repo
+- Open an issue on [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues)
+- Share it with anyone who needs live desktop translation
