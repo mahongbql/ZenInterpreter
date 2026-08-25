@@ -77,7 +77,7 @@ Default pair is **English → 中文**.
 | Platform | Language support |
 | :--- | :--- |
 | **macOS** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
-| **Windows** | English → 中文 only for now |
+| **Windows** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
 
 Your language pair and engine choice are remembered across launches.
 
