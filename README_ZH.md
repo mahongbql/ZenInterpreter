@@ -77,7 +77,7 @@ Google 不可用时，会自动回退到 AI 引擎。
 | 平台 | 语种支持 |
 | :--- | :--- |
 | **macOS** | English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch 任意配对，可一键对调 |
-| **Windows** | 目前仅支持 英语 → 中文 |
+| **Windows** | English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch 任意配对，可一键对调 |
 
 翻译方向和引擎选择会记住，下次打开不用重设。
 
