@@ -88,7 +88,7 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (W
 ### Account
 
 - GitHub / Google one-click login
-- **30-minute guest trial** per device, per day
+- **3-hours guest trial** per device, per day
 - Redeem a license key in Settings; expired members can stay in the app and renew without logging out again
 
 ---
