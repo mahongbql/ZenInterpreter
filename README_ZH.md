@@ -18,6 +18,20 @@
 
 ---
 
+## 下载
+
+**选择你的系统，直接下载安装 ZenInterpreter：**
+
+| 平台 | 下载 |
+| :--- | :--- |
+| 🪟 **Windows** | [**下载 ZenInterpreter for Windows**](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe) |
+| 🍎 **macOS** | [**下载 ZenInterpreter for macOS**](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg) |
+
+> **Windows：** `ZenInterpreter_Setup_v1.0.0.exe`  
+> **macOS：** `ZenInterpreter.dmg`
+
+---
+
 ## 演示
 
 https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
@@ -95,12 +109,14 @@ Google 不可用时，会自动回退到 AI 引擎。
 
 ## 快速开始
 
-1. 从 [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags) 下载对应系统的安装包。
+1. 下载对应系统的安装包：
+   - **Windows：** [ZenInterpreter_Setup_v1.0.0.exe](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe)
+   - **macOS：** [ZenInterpreter.dmg](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg)
 2. 打开应用，用 GitHub、Google 登录，或开启游客体验。
 3. 鼠标移到字幕窗上 → **⚙ 设置**：
-   - **音频设备** — 麦克风，或 BlackHole / 立体声混音 捕获系统声音
-   - **翻译引擎** — AI Model 或 Google
-   - **翻译方向** — macOS 可选源语言 / 目标语言，或点 ⇄ 对调；Windows 目前固定为英语 → 中文
+    - **音频设备** — 麦克风，或 BlackHole / 立体声混音 捕获系统声音
+    - **翻译引擎** — AI Model 或 Google
+    - **翻译方向** — macOS 可选源语言 / 目标语言，或点 ⇄ 对调；Windows 目前固定为英语 → 中文
 4. 开始播放或说话，字幕会出现在悬浮窗里。
 
 ### 在 macOS 上捕获系统音频
