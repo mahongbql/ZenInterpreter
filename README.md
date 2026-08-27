@@ -18,6 +18,20 @@
 
 ---
 
+## Download
+
+**Get ZenInterpreter for your platform:**
+
+| Platform | Download |
+| :--- | :--- |
+| 🪟 **Windows** | [**Download ZenInterpreter for Windows**](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe) |
+| 🍎 **macOS** | [**Download ZenInterpreter for macOS**](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg) |
+
+> **Windows:** `ZenInterpreter_Setup_v1.0.0.exe`  
+> **macOS:** `ZenInterpreter.dmg`
+
+---
+
 ## Demo
 
 https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
@@ -95,12 +109,14 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (W
 
 ## Quick start
 
-1. Download the latest build for your OS from [GitHub Tags](https://github.com/mahongbql/ZenInterpreter/tags).
+1. Download the installer for your platform:
+   - **Windows:** [ZenInterpreter_Setup_v1.0.0.exe](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe)
+   - **macOS:** [ZenInterpreter.dmg](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg)
 2. Open the app and sign in with GitHub, Google, or start the guest trial.
 3. Hover the overlay → **⚙ Settings**:
-   - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
-   - **Engine** — AI Model or Google
-   - **Languages** — on macOS, pick source / target or tap ⇄ to swap; on Windows this is fixed to English → 中文
+    - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
+    - **Engine** — AI Model or Google
+    - **Languages** — on macOS, pick source / target or tap ⇄ to swap; on Windows this is fixed to English → 中文
 4. Play or speak. Captions appear in the overlay.
 
 ### Capture system audio on macOS
