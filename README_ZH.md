@@ -24,8 +24,8 @@
 
 | 平台 | 下载 |
 | :--- | :--- |
-| 🪟 **Windows** | [**下载 ZenInterpreter for Windows**](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe) |
-| 🍎 **macOS** | [**下载 ZenInterpreter for macOS**](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg) |
+| 🪟 **Windows** | [**下载 ZenInterpreter for Windows**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe) |
+| 🍎 **macOS** | [**下载 ZenInterpreter for macOS**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg) |
 
 > **Windows：** `ZenInterpreter_Setup_v1.0.0.exe`  
 > **macOS：** `ZenInterpreter.dmg`
@@ -110,8 +110,8 @@ Google 不可用时，会自动回退到 AI 引擎。
 ## 快速开始
 
 1. 下载对应系统的安装包：
-   - **Windows：** [ZenInterpreter_Setup_v1.0.0.exe](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe)
-   - **macOS：** [ZenInterpreter.dmg](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg)
+   - **Windows：** [ZenInterpreter_Setup_v1.0.0.exe](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe)
+   - **macOS：** [ZenInterpreter.dmg](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg)
 2. 打开应用，用 GitHub、Google 登录，或开启游客体验。
 3. 鼠标移到字幕窗上 → **⚙ 设置**：
     - **音频设备** — 麦克风，或 BlackHole / 立体声混音 捕获系统声音
