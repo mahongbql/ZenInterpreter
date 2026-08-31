@@ -24,8 +24,8 @@
 
 | Platform | Download |
 | :--- | :--- |
-| 🪟 **Windows** | [**Download ZenInterpreter for Windows**](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe) |
-| 🍎 **macOS** | [**Download ZenInterpreter for macOS**](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg) |
+| 🪟 **Windows** | [**Download ZenInterpreter for Windows**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe) |
+| 🍎 **macOS** | [**Download ZenInterpreter for macOS**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg) |
 
 > **Windows:** `ZenInterpreter_Setup_v1.0.0.exe`  
 > **macOS:** `ZenInterpreter.dmg`
