@@ -30,6 +30,8 @@
 > **Windows:** `ZenInterpreter_Setup_v1.0.0.exe`  
 > **macOS:** `ZenInterpreter.dmg`
 
+Current app version is **1.1.0**. On macOS you can also update from **Settings → Check for updates** without re-downloading the speech model.
+
 ---
 
 ## Demo
@@ -60,9 +62,33 @@ Built for people who need to **follow another language in real time**, without i
 
 Frameless, translucent subtitle window that stays above other apps. On macOS it also covers fullscreen apps and other Spaces. Hover to reveal the toolbar; drag to move; pull the edges to resize. Works across multiple displays.
 
+The first launch keeps the window open while the recognizer loads (usually about ten seconds), so it does not look like the app failed to start.
+
+### Scrollable caption history
+
+The overlay is no longer a single disappearing line. It keeps a running bilingual log:
+
+1. A live **preview** of the original transcript
+2. The **final source line**, then a **streaming translation** that fills in word by word
+3. Earlier pairs stay in the window — scroll up to reread, and it sticks to the latest line again when you return to the bottom
+
+If recognition revises the last sentence, that line is updated in place instead of stacking fragments.
+
+### Export
+
+From Settings you can export the current session as:
+
+- **Word** (`.docx`)
+- **Plain text** (`.txt`)
+- **Markdown** (`.md`)
+
+Default save location is the Desktop.
+
 ### Local speech recognition
 
-**SenseVoiceSmall** runs locally through **ONNX Runtime (INT8)**. No PyTorch. Audio never leaves your machine — only recognized text is sent out for translation.
+**SenseVoiceSmall** runs locally through **ONNX Runtime (INT8)** in a **separate worker process**. The subtitle window stays responsive while the model loads or decodes. No PyTorch. Audio never leaves your machine — only recognized text is sent out for translation.
+
+Filler words, cut-off tails, and obvious ASR junk are filtered before translation.
 
 ### Dual translation engines
 
@@ -73,27 +99,36 @@ Switch anytime in Settings:
 | **AI Model** | Context-aware streaming interpretation. Corrects ASR slips, drops fillers, and keeps phrasing natural. Best for talks and conversations. |
 | **Google** | Fast, literal machine translation with lower overhead. Best when you want speed over fluency. |
 
-If Google is unavailable, the app automatically falls back to the AI engine.
-
-### Live dual-line captions
-
-While you speak (or the meeting plays), the overlay shows:
-
-1. A live **preview** of the original transcript
-2. The **final source line**, then a **streaming translation** that fills in word by word
-
-Translation is dispatched in semantic units (not one giant block), so long speech stays low-latency.
+If Google is unavailable, the app automatically falls back to the AI engine. Translation is dispatched in semantic units (not one giant block), so long speech stays low-latency.
 
 ### Languages
 
-Default pair is **English → 中文**.
+Default pair is **English → 中文**. Both platforms now support the same set.
 
 | Platform | Language support |
 | :--- | :--- |
 | **macOS** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
 | **Windows** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
 
-Your language pair and engine choice are remembered across launches.
+Your language pair, engine, and audio device are remembered across launches.
+
+### Independent settings panel
+
+Hover the overlay → **⚙**. The panel docks beside the subtitle window (right side, or left if there is no room) and does not stretch the caption area.
+
+- **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
+- **Engine** — AI Model or Google
+- **Languages** — pick source / target, or tap ⇄ to swap
+- **Account** — trial / VIP status, buy a key, redeem, sign out
+- **Export** — save the session
+- **Updates** — current version and check for updates
+
+### In-app updates
+
+| Platform | What happens |
+| :--- | :--- |
+| **macOS** | Settings → **Check for updates** downloads a small program-only package, keeps your local speech model, can **resume** an interrupted download, then **Restart to install**. Put the app in **Applications** first so the folder is writable. |
+| **Windows** | Check for updates opens the GitHub release page. Reinstall from there for now. |
 
 ### Audio input
 
@@ -102,7 +137,7 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (W
 ### Account
 
 - GitHub / Google one-click login
-- **3-hours guest trial** per device, per day
+- **3-hour guest trial** per device, per day
 - Redeem a license key in Settings; expired members can stay in the app and renew without logging out again
 
 ---
@@ -110,14 +145,14 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (W
 ## Quick start
 
 1. Download the installer for your platform:
-   - **Windows:** [ZenInterpreter_Setup_v1.0.0.exe](https://github.com/mahongbql/ZenInterpreter/releases/download/windows1.0/ZenInterpreter_Setup_v1.0.0.exe)
-   - **macOS:** [ZenInterpreter.dmg](https://github.com/mahongbql/ZenInterpreter/releases/download/mac1.0/ZenInterpreter.dmg)
+   - **Windows:** [ZenInterpreter_Setup_v1.0.0.exe](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe)
+   - **macOS:** [ZenInterpreter.dmg](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg)
 2. Open the app and sign in with GitHub, Google, or start the guest trial.
 3. Hover the overlay → **⚙ Settings**:
-    - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
-    - **Engine** — AI Model or Google
-    - **Languages** — on macOS, pick source / target or tap ⇄ to swap; on Windows this is fixed to English → 中文
-4. Play or speak. Captions appear in the overlay.
+   - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
+   - **Engine** — AI Model or Google
+   - **Languages** — pick source / target, or tap ⇄ to swap
+4. Play or speak. Captions appear in the overlay. Scroll to review earlier lines; export from Settings when you are done.
 
 ### Capture system audio on macOS
 
@@ -136,8 +171,8 @@ On Windows, enable **Stereo Mix** (or equivalent loopback) in the sound control 
 
 | Platform | Status | Notes |
 | :--- | :---: | :--- |
-| **macOS** | Available | 12+, Apple Silicon and Intel · full language pairs |
-| **Windows** | Available | Installer available · English → 中文 only |
+| **macOS** | Available | 12+, Apple Silicon and Intel · 7-language pairs · in-app update |
+| **Windows** | Available | Installer available · same 7-language pairs · update via GitHub for now |
 | **Mobile** | Planned | — |
 
 ---
@@ -148,9 +183,10 @@ On Windows, enable **Stereo Mix** (or equivalent loopback) in the sound control 
 | :--- | :--- |
 | UI | PyQt6 · AppKit overlay on macOS (NSPanel / screensaver window level) |
 | Audio | PyAudio · Core Audio (macOS) / WASAPI (Windows) |
-| ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 |
+| ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 · dedicated worker process |
 | Translation | Streaming LLM (Qwen2.5) or Google, via a hosted API |
 | Auth / billing | Supabase · GitHub / Google OAuth · Afdian license keys |
+| Updates | GitHub Releases · macOS code-only zip with resumable download |
 | Packaging | PyInstaller · dmgbuild (macOS) / Inno Setup (Windows) |
 
 Speech recognition is fully local. Translation text is sent to the selected engine over the network.
@@ -170,13 +206,17 @@ Buy a license key on [Afdian](https://afdian.com/a/mikema), then redeem it in **
 ## Roadmap
 
 - [x] SenseVoiceSmall ONNX INT8 on-device ASR
+- [x] Isolated ASR worker so the window stays responsive
 - [x] Streaming translation with semantic-unit scheduling
 - [x] Dual engines (AI Model / Google) with auto-fallback
-- [x] macOS: 7-language pairs, swap, and preference persistence
-- [x] macOS fullscreen overlay and independent settings panel
-- [x] Windows build (English → 中文)
+- [x] 7-language pairs, swap, and preference persistence on macOS and Windows
+- [x] Scrollable caption history and in-place line revision
+- [x] Export session as Word / TXT / Markdown
+- [x] Independent settings panel
+- [x] macOS fullscreen overlay
 - [x] OAuth login, guest trial, and in-app license redeem
-- [ ] Windows multilingual pairs
+- [x] macOS in-app update (program only, resume supported)
+- [ ] Windows in-app update
 - [ ] More languages
 - [ ] Further latency and ASR quality work
 
