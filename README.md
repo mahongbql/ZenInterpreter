@@ -103,12 +103,12 @@ If Google is unavailable, the app automatically falls back to the AI engine. Tra
 
 ### Languages
 
-Default pair is **English → 中文**. Both platforms now support the same set.
+Default pair is **English → Chinese**. Both platforms now support the same set.
 
 | Platform | Language support |
 | :--- | :--- |
-| **macOS** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
-| **Windows** | Any pair among English · 中文 · 日本語 · 한국어 · Español · Français · Deutsch, plus a one-click swap |
+| **macOS** | Any pair among English · Chinese · Japanese · Korean · Spanish · French · German, plus a one-click swap |
+| **Windows** | Any pair among English · Chinese · Japanese · Korean · Spanish · French · German, plus a one-click swap |
 
 Your language pair, engine, and audio device are remembered across launches.
 
@@ -119,7 +119,7 @@ Hover the overlay → **⚙**. The panel docks beside the subtitle window (right
 - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
 - **Engine** — AI Model or Google
 - **Languages** — pick source / target, or tap ⇄ to swap
-- **Account** — trial / VIP status, buy a key, redeem, sign out
+- **Account** — trial / Pro status, upgrade, activation code, sign out
 - **Export** — save the session
 - **Updates** — current version and check for updates
 
@@ -138,7 +138,7 @@ Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (W
 
 - GitHub / Google one-click login
 - **3-hour guest trial** per device, per day
-- Redeem a license key in Settings; expired members can stay in the app and renew without logging out again
+- Upgrade to Pro in Settings. Activation codes remain available for grants, promotions, and support.
 
 ---
 
@@ -185,7 +185,7 @@ On Windows, enable **Stereo Mix** (or equivalent loopback) in the sound control 
 | Audio | PyAudio · Core Audio (macOS) / WASAPI (Windows) |
 | ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 · dedicated worker process |
 | Translation | Streaming LLM (Qwen2.5) or Google, via a hosted API |
-| Auth / billing | Supabase · GitHub / Google OAuth · Afdian license keys |
+| Auth / billing | Supabase · GitHub / Google OAuth · Waffo Checkout · activation codes |
 | Updates | GitHub Releases · macOS code-only zip with resumable download |
 | Packaging | PyInstaller · dmgbuild (macOS) / Inno Setup (Windows) |
 
@@ -193,13 +193,11 @@ Speech recognition is fully local. Translation text is sent to the selected engi
 
 ---
 
-## License
+## Pro
 
-Buy a license key on [Afdian](https://afdian.com/a/mikema), then redeem it in **Settings → 兑换激活码**.
+Upgrade in the app: **Settings → Upgrade to Pro**. Checkout opens in the browser. After payment, Pro unlocks without an activation code.
 
-> Currently only **1-Month** keys are in stock. Choose **1 Month** at checkout, otherwise key generation may fail.
-
-<img width="355" alt="Purchase Notice" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+Activation codes are for beta access, promotions, and support. They are not sold in the app. If you already have one, use **Settings → Activate code**.
 
 ---
 
