@@ -119,7 +119,7 @@ Google 不可用时，会自动回退到 AI 引擎。翻译按语义单元调度
 - **音频设备** — 麦克风，或 BlackHole / 立体声混音 捕获系统声音
 - **翻译引擎** — AI Model 或 Google
 - **翻译方向** — 选源语言 / 目标语言，或点 ⇄ 对调
-- **账号** — 试用 / 会员状态、购买卡密、兑换、退出登录
+- **账号** — 试用 / Pro 状态、升级、兑换码、退出登录
 - **导出** — 保存本场记录
 - **软件更新** — 当前版本，检查更新
 
@@ -138,7 +138,7 @@ Google 不可用时，会自动回退到 AI 引擎。翻译按语义单元调度
 
 - GitHub / Google 一键登录
 - 每台设备每天 **3 小时游客试用**
-- 在设置里兑换卡密；会员到期后仍可留在应用内续期，不必重新登录
+- 在设置里升级 Pro。兑换码仍用于内测、推广和客服补偿，应用内不再出售。
 
 ---
 
@@ -185,7 +185,7 @@ Windows 请在声音控制面板中打开 **立体声混音**（或同类回环�
 | 音频 | PyAudio · Core Audio（macOS）/ WASAPI（Windows） |
 | 语音识别 | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 · 独立识别进程 |
 | 翻译 | 流式 LLM（Qwen2.5）或 Google，经托管 API |
-| 登录 / 计费 | Supabase · GitHub / Google OAuth · 爱发电卡密 |
+| 登录 / 计费 | Supabase · GitHub / Google OAuth · Waffo Checkout · 兑换码 |
 | 更新 | GitHub Releases · macOS 仅更新程序包，支持断点续传 |
 | 打包 | PyInstaller · dmgbuild（macOS）/ Inno Setup（Windows） |
 
@@ -193,13 +193,11 @@ Windows 请在声音控制面板中打开 **立体声混音**（或同类回环�
 
 ---
 
-## 购买与激活
+## Pro
 
-在 [爱发电](https://afdian.com/a/mikema) 购买卡密，然后到 **设置 → 兑换激活码** 激活。
+在应用内升级：**设置 → Upgrade to Pro**。浏览器打开结账页，支付完成后自动开通，不需要兑换码。
 
-> 目前货架上只有 **1 个月** 卡密。下单请选择 **1 Month**，否则可能无法生成激活码。
-
-<img width="355" alt="购买须知" src="https://github.com/user-attachments/assets/e0ca6552-b9ad-42ad-a3f9-6a4f1b445cf0" />
+兑换码用于内测、推广和客服补偿，不再在应用里出售。已有兑换码时，使用 **设置 → Activate code**。
 
 ---
 
