@@ -1,229 +1,210 @@
 # ZenInterpreter
 
 <p align="center">
-  <b>Lightweight real-time desktop interpreter</b><br>
-  Local speech recognition · Streaming AI translation · Always-on-top overlay
+  <b>Real-time desktop interpreter for macOS and Windows</b><br>
+  On-device speech recognition · Streaming translation · Always-on-top bilingual captions
 </p>
 
 <p align="center">
-  <b>English</b> • <a href="./README_ZH.md">简体中文</a>
+  <b>English</b> · <a href="./README_ZH.md">简体中文</a>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/ASR-SenseVoice%20ONNX%20INT8-orange" alt="SenseVoice">
-  <img src="https://img.shields.io/badge/Inference-ONNX%20Runtime-green" alt="ONNX Runtime">
-  <img src="https://img.shields.io/badge/Translate-AI%20%7C%20Google-purple" alt="Translation">
+  <img src="https://img.shields.io/badge/Release-macOS%201.6.0-blue" alt="Release">
+  <img src="https://img.shields.io/badge/Speech%20recognition-On%20device-orange" alt="On-device speech recognition">
+  <img src="https://img.shields.io/badge/Languages-7-green" alt="7 languages">
 </p>
+
+**ZenInterpreter** is real-time simultaneous interpretation software for the desktop. It listens to a microphone or to system audio, transcribes speech on the device, and shows live bilingual subtitles in a floating window above meetings, lectures, browsers, and video.
+
+It is built for people who need to follow another language as it is spoken: international meetings, online courses, client calls, livestreams, and original-language video. Speech recognition runs locally. Only the recognized text is sent for translation.
 
 ---
 
 ## Download
 
-**Get ZenInterpreter for your platform:**
-
-| Platform | Download |
+| Platform | Installer |
 | :--- | :--- |
-| 🪟 **Windows** | [**Download ZenInterpreter for Windows**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe) |
-| 🍎 **macOS** | [**Download ZenInterpreter for macOS**](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg) |
+| macOS 12+ | [Download ZenInterpreter for macOS](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg) |
+| Windows | [Download ZenInterpreter for Windows](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe) |
 
-> **Windows:** `ZenInterpreter_Setup_v1.0.0.exe`  
-> **macOS:** `ZenInterpreter.dmg`
+The current macOS release is **1.6.0**. After installation, open **Settings → Check for updates** to install later builds. The update replaces the application only and keeps the local speech model. An interrupted download can resume.
 
-Current app version is **1.1.0**. On macOS you can also update from **Settings → Check for updates** without re-downloading the speech model.
+Windows updates are published on the [release page](https://github.com/mahongbql/ZenInterpreter/releases).
 
----
-
-## Demo
-
-https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd
+[Watch a short demo](https://github.com/user-attachments/assets/f79f0b52-764a-4a75-8f50-3f55b277cbbd)
 
 ---
 
-## Overview
+## Where it is used
 
-**ZenInterpreter** is a floating subtitle window for macOS and Windows. It listens to your microphone or system audio, transcribes speech on-device, and streams a live translation on top of Zoom, browsers, lectures, and fullscreen apps.
-
-Built for people who need to **follow another language in real time**, without installing a heavyweight AI stack.
-
-**Typical use cases**
-
-- International meetings and remote collaboration
-- Online courses, webinars, and raw video
-- Live streams that need instant captions
-- Client calls and cross-border sales
-- Listening practice while watching original-language content
+- **Meetings and calls** — live captions over Zoom and other conferencing apps
+- **Courses and webinars** — follow a lecture without waiting for uploaded subtitles
+- **Video and livestreams** — caption YouTube, local files, and streams from system audio
+- **Client conversations** — keep a bilingual record of a cross-language call
+- **Listening practice** — read the translation while the original audio continues
 
 ---
 
-## Highlights
+## Capabilities
 
-### Always-on-top overlay
+### Always-on-top captions
 
-Frameless, translucent subtitle window that stays above other apps. On macOS it also covers fullscreen apps and other Spaces. Hover to reveal the toolbar; drag to move; pull the edges to resize. Works across multiple displays.
+A frameless, translucent subtitle window stays above other applications. On macOS it also covers fullscreen apps and other Spaces. Hover to show the toolbar, drag to move, and resize from the edges. It works across multiple displays.
 
-The first launch keeps the window open while the recognizer loads (usually about ten seconds), so it does not look like the app failed to start.
+The window opens immediately on first launch while the recognizer loads, so the application is visible during startup.
 
-### Scrollable caption history
+### Bilingual transcript
 
-The overlay is no longer a single disappearing line. It keeps a running bilingual log:
+The overlay keeps a running log, not a single line that disappears:
 
-1. A live **preview** of the original transcript
-2. The **final source line**, then a **streaming translation** that fills in word by word
-3. Earlier pairs stay in the window — scroll up to reread, and it sticks to the latest line again when you return to the bottom
+1. A live preview of the original speech
+2. The final source line, then a translation that streams in as it is produced
+3. Earlier pairs remain in the window — scroll up to reread, and the view follows the latest line again at the bottom
 
-If recognition revises the last sentence, that line is updated in place instead of stacking fragments.
+When recognition revises the previous sentence, that line is updated in place.
 
-### Export
+### On-device speech recognition
 
-From Settings you can export the current session as:
+**SenseVoiceSmall** runs locally with **ONNX Runtime (INT8)** in a separate process, so the caption window stays responsive while the model loads or decodes. Audio is not uploaded. Filler words, cut-off fragments, and obvious recognition noise are removed before translation.
 
-- **Word** (`.docx`)
-- **Plain text** (`.txt`)
-- **Markdown** (`.md`)
+### Two translation engines
 
-Default save location is the Desktop.
-
-### Local speech recognition
-
-**SenseVoiceSmall** runs locally through **ONNX Runtime (INT8)** in a **separate worker process**. The subtitle window stays responsive while the model loads or decodes. No PyTorch. Audio never leaves your machine — only recognized text is sent out for translation.
-
-Filler words, cut-off tails, and obvious ASR junk are filtered before translation.
-
-### Dual translation engines
-
-Switch anytime in Settings:
-
-| Engine | What it does |
+| Engine | Best for |
 | :--- | :--- |
-| **AI Model** | Context-aware streaming interpretation. Corrects ASR slips, drops fillers, and keeps phrasing natural. Best for talks and conversations. |
-| **Google** | Fast, literal machine translation with lower overhead. Best when you want speed over fluency. |
+| **AI Model** | Talks and conversation. Uses context, corrects recognition slips, and keeps the wording natural. |
+| **Google** | Lower latency and a more literal translation. |
 
-If Google is unavailable, the app automatically falls back to the AI engine. Translation is dispatched in semantic units (not one giant block), so long speech stays low-latency.
+If Google is unavailable, ZenInterpreter falls back to the AI engine. Long speech is translated in semantic units, so a sentence does not have to finish before the first words appear.
 
 ### Languages
 
-Default pair is **English → Chinese**. Both platforms now support the same set.
+The default pair is **English → Chinese**. Any pair among these languages can be selected, and the direction can be swapped in one click:
 
-| Platform | Language support |
-| :--- | :--- |
-| **macOS** | Any pair among English · Chinese · Japanese · Korean · Spanish · French · German, plus a one-click swap |
-| **Windows** | Any pair among English · Chinese · Japanese · Korean · Spanish · French · German, plus a one-click swap |
+English · Chinese · Japanese · Korean · Spanish · French · German
 
-Your language pair, engine, and audio device are remembered across launches.
+The language pair, engine, and audio device are saved between launches. The same set is available on macOS and Windows.
 
-### Independent settings panel
+### Session export
 
-Hover the overlay → **⚙**. The panel docks beside the subtitle window (right side, or left if there is no room) and does not stretch the caption area.
+From Settings, export the current session as Word (`.docx`), plain text (`.txt`), or Markdown (`.md`). The default location is the Desktop.
 
-- **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
-- **Engine** — AI Model or Google
-- **Languages** — pick source / target, or tap ⇄ to swap
-- **Account** — trial / Pro status, upgrade, activation code, sign out
-- **Export** — save the session
-- **Updates** — current version and check for updates
+### System audio or microphone
 
-### In-app updates
-
-| Platform | What happens |
-| :--- | :--- |
-| **macOS** | Settings → **Check for updates** downloads a small program-only package, keeps your local speech model, can **resume** an interrupted download, then **Restart to install**. Put the app in **Applications** first so the folder is writable. |
-| **Windows** | Check for updates opens the GitHub release page. Reinstall from there for now. |
-
-### Audio input
-
-Pick any input device in Settings. If **BlackHole** (macOS) or **Stereo Mix** (Windows) is present, it is selected automatically so you can caption system audio — Zoom, YouTube, a local video — not just the microphone.
+Choose any input device in Settings. When **BlackHole** (macOS) or **Stereo Mix** (Windows) is installed, it is selected automatically so captions follow system audio — a meeting, a browser, or a local video — rather than only the microphone.
 
 ### Account
 
-- GitHub / Google one-click login
-- **3-hour guest trial** per device, per day
-- Upgrade to Pro in Settings. Activation codes remain available for grants, promotions, and support.
+Sign in with GitHub or Google, or start a **3-hour guest trial** per device, per day. Pro is purchased in the application. Checkout opens in the browser and unlocks after payment. Activation codes are issued for organizations, promotions, and support.
 
 ---
 
-## Quick start
+## Get started
 
-1. Download the installer for your platform:
-   - **Windows:** [ZenInterpreter_Setup_v1.0.0.exe](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter_Setup_v1.0.0.exe)
-   - **macOS:** [ZenInterpreter.dmg](https://zeninterpreter-download.oss-cn-beijing.aliyuncs.com/ZenInterpreter.dmg)
-2. Open the app and sign in with GitHub, Google, or start the guest trial.
-3. Hover the overlay → **⚙ Settings**:
+1. Install the package for your system from the [download table](#download).
+2. Open ZenInterpreter and sign in, or start the guest trial.
+3. Hover the caption window and open **Settings**:
    - **Audio device** — microphone, or BlackHole / Stereo Mix for system audio
    - **Engine** — AI Model or Google
-   - **Languages** — pick source / target, or tap ⇄ to swap
-4. Play or speak. Captions appear in the overlay. Scroll to review earlier lines; export from Settings when you are done.
+   - **Languages** — source, target, or swap
+4. Speak or play audio. Scroll the overlay to review earlier lines, then export the session from Settings.
 
-### Capture system audio on macOS
-
-To translate Zoom / a browser / a local video instead of the mic:
+### Caption system audio on macOS
 
 1. Install [BlackHole 2ch](https://existential.audio/blackhole/).
-2. In **Audio MIDI Setup**, create a **Multi-Output Device** that includes both your speakers and BlackHole.
-3. Set macOS output to that Multi-Output Device.
-4. In ZenInterpreter, choose **BlackHole** as the input (auto-selected when detected).
+2. In **Audio MIDI Setup**, create a **Multi-Output Device** that includes your speakers and BlackHole.
+3. Set the macOS output to that Multi-Output Device.
+4. In ZenInterpreter, select **BlackHole** as the input. It is selected automatically when detected.
 
-On Windows, enable **Stereo Mix** (or equivalent loopback) in the sound control panel, then select it as the input in Settings.
-
----
-
-## Platforms
-
-| Platform | Status | Notes |
-| :--- | :---: | :--- |
-| **macOS** | Available | 12+, Apple Silicon and Intel · 7-language pairs · in-app update |
-| **Windows** | Available | Installer available · same 7-language pairs · update via GitHub for now |
-| **Mobile** | Planned | — |
+On Windows, enable **Stereo Mix** (or another loopback device) in the sound control panel, then select it in Settings.
 
 ---
 
-## Tech stack
+## System requirements
 
-| Layer | Stack |
+| | macOS | Windows |
+| :--- | :--- | :--- |
+| Version | macOS 12 or later | Windows 10 or later |
+| Processor | Apple Silicon or Intel | 64-bit |
+| Display | One or more displays, including fullscreen and multiple Spaces | Standard desktop session |
+| Audio | Microphone, or BlackHole for system audio | Microphone, or Stereo Mix for system audio |
+| Network | Required for translation and sign-in. Speech recognition does not need a network connection after the model is installed. | Same |
+
+---
+
+## Privacy
+
+| Data | Where it goes |
 | :--- | :--- |
-| UI | PyQt6 · AppKit overlay on macOS (NSPanel / screensaver window level) |
-| Audio | PyAudio · Core Audio (macOS) / WASAPI (Windows) |
-| ASR | SenseVoiceSmall · funasr_onnx · ONNX Runtime INT8 · dedicated worker process |
-| Translation | Streaming LLM (Qwen2.5) or Google, via a hosted API |
-| Auth / billing | Supabase · GitHub / Google OAuth · Waffo Checkout · activation codes |
-| Updates | GitHub Releases · macOS code-only zip with resumable download |
-| Packaging | PyInstaller · dmgbuild (macOS) / Inno Setup (Windows) |
-
-Speech recognition is fully local. Translation text is sent to the selected engine over the network.
+| Microphone and system audio | Stays on the device. Recognition runs locally. |
+| Recognized text | Sent to the selected translation engine. |
+| Account | GitHub or Google sign-in, used to manage the trial and Pro. |
 
 ---
 
-## Pro
+## FAQ
 
-Upgrade in the app: **Settings → Upgrade to Pro**. Checkout opens in the browser. After payment, Pro unlocks without an activation code.
+**Can it caption a Zoom meeting or a YouTube video?**  
+Yes. Capture system audio with BlackHole on macOS or Stereo Mix on Windows, then leave ZenInterpreter above the meeting or the browser.
 
-Activation codes are for beta access, promotions, and support. They are not sold in the app. If you already have one, use **Settings → Activate code**.
+**Does speech leave the computer?**  
+No. Audio is recognized on the device. The text of each utterance is sent for translation.
+
+**Which languages are supported?**  
+English, Chinese, Japanese, Korean, Spanish, French, and German, in any direction.
+
+**What is the difference between the two engines?**  
+AI Model is a streaming interpreter: it smooths recognition errors and reads more like spoken interpretation. Google is faster and more literal.
+
+**Is there a trial?**  
+Yes. Each device includes 3 hours of guest use per day. Pro is available from Settings.
+
+**Will an update download the speech model again?**  
+On macOS, no. In-app updates replace the program and keep the model already on the machine.
 
 ---
 
-## Roadmap
+## Plans
 
-- [x] SenseVoiceSmall ONNX INT8 on-device ASR
-- [x] Isolated ASR worker so the window stays responsive
-- [x] Streaming translation with semantic-unit scheduling
-- [x] Dual engines (AI Model / Google) with auto-fallback
-- [x] 7-language pairs, swap, and preference persistence on macOS and Windows
-- [x] Scrollable caption history and in-place line revision
-- [x] Export session as Word / TXT / Markdown
-- [x] Independent settings panel
-- [x] macOS fullscreen overlay
-- [x] OAuth login, guest trial, and in-app license redeem
-- [x] macOS in-app update (program only, resume supported)
-- [ ] Windows in-app update
-- [ ] More languages
-- [ ] Further latency and ASR quality work
+| | Guest trial | Pro |
+| :--- | :--- | :--- |
+| Daily use | 3 hours per device | Unlocked after purchase |
+| Captions, export, language pairs | Included | Included |
+| How to start | Open the app | **Settings → Upgrade** |
+
+Activation codes are for organizations, promotions, and support. They are redeemed with **Settings → Activate code**.
+
+---
+
+## How it is built
+
+| Layer | Implementation |
+| :--- | :--- |
+| Interface | PyQt6. On macOS, an AppKit overlay (NSPanel) at screensaver window level |
+| Audio | PyAudio, Core Audio on macOS, WASAPI on Windows |
+| Speech recognition | SenseVoiceSmall, ONNX Runtime INT8, separate worker process |
+| Translation | Streaming language model (Qwen2.5) or Google |
+| Sign-in | GitHub and Google |
+| Packaging | PyInstaller. macOS disk image, Windows installer |
+| Updates | macOS in-app update with resumable download. Windows via the release page |
+
+---
+
+## Platform status
+
+| Platform | Status |
+| :--- | :--- |
+| macOS | Released. In-app updates. Current release 1.6.0 |
+| Windows | Released. Installer available. Updates from the release page |
+| Mobile | Not available |
+
+Planned work: Windows in-app updates, additional languages, and further reductions in caption latency.
 
 ---
 
 ## Support
 
-If ZenInterpreter helps you:
+Questions, defects, and feature requests: [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues).
 
-- Star the repo
-- Open an issue on [GitHub Issues](https://github.com/mahongbql/ZenInterpreter/issues)
-- Share it with anyone who needs live desktop translation
+Release history: [GitHub Releases](https://github.com/mahongbql/ZenInterpreter/releases).
